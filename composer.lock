@@ -4,8 +4,46 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d06238702bf5350a5e00808eacc99181",
+    "content-hash": "dd18fa3f77866a5d690833af0afe9413",
     "packages": [
+        {
+            "name": "arodu/tebo",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/arodu/cakephp-tebo.git",
+                "reference": "b91bd0c89bdb00a75b8d711804065ec7d9f5e2f9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/arodu/cakephp-tebo/zipball/b91bd0c89bdb00a75b8d711804065ec7d9f5e2f9",
+                "reference": "b91bd0c89bdb00a75b8d711804065ec7d9f5e2f9",
+                "shasum": ""
+            },
+            "require": {
+                "cakephp/cakephp": "^4.3",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.5 || ^9.3"
+            },
+            "type": "cakephp-plugin",
+            "autoload": {
+                "psr-4": {
+                    "TeBo\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "TeBo plugin for CakePHP",
+            "support": {
+                "issues": "https://github.com/arodu/cakephp-tebo/issues",
+                "source": "https://github.com/arodu/cakephp-tebo/tree/develop"
+            },
+            "time": "2022-05-14T23:26:32+00:00"
+        },
         {
             "name": "cakephp/cakephp",
             "version": "4.3.9",
@@ -6054,7 +6092,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "arodu/tebo": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
