@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/arodu/cakephp-tebo.git",
-                "reference": "b91bd0c89bdb00a75b8d711804065ec7d9f5e2f9"
+                "reference": "eba58cf4ccb2fcb19c01680ace4ef58db3b426eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/arodu/cakephp-tebo/zipball/b91bd0c89bdb00a75b8d711804065ec7d9f5e2f9",
-                "reference": "b91bd0c89bdb00a75b8d711804065ec7d9f5e2f9",
+                "url": "https://api.github.com/repos/arodu/cakephp-tebo/zipball/eba58cf4ccb2fcb19c01680ace4ef58db3b426eb",
+                "reference": "eba58cf4ccb2fcb19c01680ace4ef58db3b426eb",
                 "shasum": ""
             },
             "require": {
@@ -37,12 +37,12 @@
             "license": [
                 "MIT"
             ],
-            "description": "TeBo plugin for CakePHP",
+            "description": "Telegram Bot plugin for CakePHP",
             "support": {
                 "issues": "https://github.com/arodu/cakephp-tebo/issues",
                 "source": "https://github.com/arodu/cakephp-tebo/tree/develop"
             },
-            "time": "2022-05-14T23:26:32+00:00"
+            "time": "2022-05-29T22:24:52+00:00"
         },
         {
             "name": "cakephp/cakephp",
