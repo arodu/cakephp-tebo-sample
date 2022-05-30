@@ -64,7 +64,7 @@ class Application extends BaseApplication
         }
 
         // Load more plugins here
-        $this->addPlugin(\TeBo\Plugin::class);
+        $this->addPlugin(\TeBo\Plugin::class, ['routes' => true]);
     }
 
     /**
@@ -75,6 +75,19 @@ class Application extends BaseApplication
      */
     public function middleware(MiddlewareQueue $middlewareQueue): MiddlewareQueue
     {
+
+        $csrf = new CsrfProtectionMiddleware([
+            'httponly' => true,
+        ]);
+
+        $csrf->skipCheckCallback(function ($request) {
+            // Skip token check for API URLs.
+            if ($request->getParam('plugin') === 'TeBo') {
+                return true;
+            }
+        });
+
+
         $middlewareQueue
             // Catch any exceptions in the lower layers,
             // and make an error page/response
@@ -100,9 +113,7 @@ class Application extends BaseApplication
 
             // Cross Site Request Forgery (CSRF) Protection Middleware
             // https://book.cakephp.org/4/en/controllers/middleware.html#cross-site-request-forgery-csrf-middleware
-            ->add(new CsrfProtectionMiddleware([
-                'httponly' => true,
-            ]));
+            ->add($csrf);
 
         return $middlewareQueue;
     }
