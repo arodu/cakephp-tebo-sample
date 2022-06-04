@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/arodu/cakephp-tebo.git",
-                "reference": "0ad2725e62a26fa50843e825601f10591494dfed"
+                "reference": "ee25e837c57c430306a8543d021e7a02d09cb4b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/arodu/cakephp-tebo/zipball/0ad2725e62a26fa50843e825601f10591494dfed",
-                "reference": "0ad2725e62a26fa50843e825601f10591494dfed",
+                "url": "https://api.github.com/repos/arodu/cakephp-tebo/zipball/ee25e837c57c430306a8543d021e7a02d09cb4b2",
+                "reference": "ee25e837c57c430306a8543d021e7a02d09cb4b2",
                 "shasum": ""
             },
             "require": {
@@ -42,7 +42,7 @@
                 "issues": "https://github.com/arodu/cakephp-tebo/issues",
                 "source": "https://github.com/arodu/cakephp-tebo/tree/develop"
             },
-            "time": "2022-06-03T22:26:06+00:00"
+            "time": "2022-06-04T17:38:54+00:00"
         },
         {
             "name": "cakephp/cakephp",

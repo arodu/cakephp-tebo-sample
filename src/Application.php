@@ -16,6 +16,7 @@ declare(strict_types=1);
  */
 namespace App;
 
+use App\Event\WebhookListener;
 use Cake\Core\Configure;
 use Cake\Core\ContainerInterface;
 use Cake\Datasource\FactoryLocator;
@@ -64,7 +65,9 @@ class Application extends BaseApplication
         }
 
         // Load more plugins here
-        //$this->addPlugin(\TeBo\Plugin::class, ['routes' => true]);
+        $this->addPlugin(\TeBo\Plugin::class, ['routes' => true]);
+
+        $this->setListeners();
     }
 
     /**
@@ -144,5 +147,10 @@ class Application extends BaseApplication
         $this->addPlugin('Migrations');
 
         // Load more plugins here
+    }
+
+    protected function setListeners(): void
+    {
+        $this->getEventManager()->on(new WebhookListener());
     }
 }
