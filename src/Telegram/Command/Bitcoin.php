@@ -22,12 +22,15 @@ class Bitcoin extends BaseCommand
      */
     public function execute(Update $update)
     {
-        $price = $this->getBitcoinPrice();
-        $update->getChat()->send(new Text('The current price of bitcoin is $' . $price));
-        //$update->getChat()->send(new Text('Custom start command!'));
+        $btc = $this->getItem();
+
+        //dd($btc);
+
+        $update->getChat()->send(new Text('The current price of bitcoin is $' . $btc['quote']['USD']['price']));
+        $update->getChat()->send(new Text('Custom start command!'));
     }
 
-    public function getBitcoinPrice()
+    public function getItem()
     {
         $url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest';
         $headers = [
@@ -47,8 +50,19 @@ class Bitcoin extends BaseCommand
         $client = new \Cake\Http\Client();
         $response = $client->get($url, $qs, $request);
         $data = $response->getJson();
-
-        $price = Hash::get($data, 'data.0.quote.USD.price');
-        return $price;
+        return $this->getInfo($data, 'BTC');
     }
+
+    protected function getInfo($data, $symbol)
+    {
+        foreach ($data['data'] as $item) {
+            if ($item['symbol'] === $symbol) {
+                return $item;
+            }
+        }
+
+        return null;
+    }
+
+
 }
