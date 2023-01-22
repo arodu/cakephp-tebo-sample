@@ -25,19 +25,21 @@ class Bitcoin extends BaseCommand
     public function execute(Update $update)
     {
         $btc = $this->getItem();
-        $update->getChat()->send(new Text([
-            '<b>Name:</b> ' . $btc['name'],
-            '<b>Price:</b> ' . $btc['quote']['USD']['price'],
-            '<b>Name:</b> ' . $btc['name'],
-            '<b>Name:</b> ' . $btc['name'],
-            '<b>Change 1h</b>' => 'percent_change_1h',
-            '<b>Change 24h</b>' => 'percent_change_24h',
-            '<b>Change 7d</b>' => 'percent_change_7d',
-            '<b>Change 30d</b>' => 'percent_change_30d',
-            '<b>Change 60d</b>' => 'percent_change_60d',
-            '<b>Change 90d</b>' => 'percent_change_90d',
-            'updated' => new Date('2023-01-22T17:07:00.000Z'),
-        ]));
+        $text = new Text('');
+
+        $text->addText('<b>Name:</b> ' . $btc['name']);
+        $text->addText('<b>Price:</b> ' . $btc['quote']['USD']['price']);
+        $text->addText('<b>Name:</b> ' . $btc['name']);
+        $text->addText('<b>Name:</b> ' . $btc['name']);
+        $text->addText('<b>Change 1h</b>' . $btc['quote']['USD']['percent_change_1h']);
+        $text->addText('<b>Change 24h</b>' . $btc['quote']['USD']['percent_change_24h']);
+        $text->addText('<b>Change 7d</b>' . $btc['quote']['USD']['percent_change_7d']);
+        $text->addText('<b>Change 30d</b>' . $btc['quote']['USD']['percent_change_30d']);
+        $text->addText('<b>Change 60d</b>' . $btc['quote']['USD']['percent_change_60d']);
+        $text->addText('<b>Change 90d</b>' . $btc['quote']['USD']['percent_change_90d']);
+        $text->addText('updated' . new Date('2023-01-22T17:07:00.000Z'));
+
+        $update->getChat()->send($text);
     }
 
     public function getItem()
