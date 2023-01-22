@@ -3,10 +3,8 @@ declare(strict_types=1);
 
 namespace App\Telegram\Command;
 
-use Cake\Chronos\Date;
 use Cake\Core\Configure;
-use Cake\I18n\FrozenDate;
-use Cake\Utility\Hash;
+use Cake\I18n\FrozenTime;
 use TeBo\Telegram\Command\BaseCommand;
 use TeBo\Telegram\Response\Text;
 use TeBo\Telegram\Update;
@@ -27,17 +25,15 @@ class Bitcoin extends BaseCommand
         $btc = $this->getItem();
         $text = new Text('');
 
-        $text->addText('<b>Name:</b> ' . $btc['name']);
-        $text->addText('<b>Price:</b> ' . $btc['quote']['USD']['price']);
-        $text->addText('<b>Name:</b> ' . $btc['name']);
-        $text->addText('<b>Name:</b> ' . $btc['name']);
-        $text->addText('<b>Change 1h</b>' . $btc['quote']['USD']['percent_change_1h']);
-        $text->addText('<b>Change 24h</b>' . $btc['quote']['USD']['percent_change_24h']);
-        $text->addText('<b>Change 7d</b>' . $btc['quote']['USD']['percent_change_7d']);
-        $text->addText('<b>Change 30d</b>' . $btc['quote']['USD']['percent_change_30d']);
-        $text->addText('<b>Change 60d</b>' . $btc['quote']['USD']['percent_change_60d']);
-        $text->addText('<b>Change 90d</b>' . $btc['quote']['USD']['percent_change_90d']);
-        $text->addText('updated' . new Date('2023-01-22T17:07:00.000Z'));
+        $text->addText('Name: ' . $btc['name']);
+        $text->addText('Price: $' . number_format((float) $btc['quote']['USD']['price'], 2));
+        $text->addText('Change 1h: ' . number_format((float) $btc['quote']['USD']['percent_change_1h'], 2)) . '%';
+        $text->addText('Change 24h: ' . number_format((float) $btc['quote']['USD']['percent_change_24h'], 2)) . '%';
+        $text->addText('Change 7d: ' . number_format((float) $btc['quote']['USD']['percent_change_7d'], 2)) . '%';
+        $text->addText('Change 30d: ' . number_format((float) $btc['quote']['USD']['percent_change_30d'], 2)) . '%';
+        $text->addText('Change 60d: ' . number_format((float) $btc['quote']['USD']['percent_change_60d'], 2)) . '%';
+        $text->addText('Change 90d: ' . number_format((float) $btc['quote']['USD']['percent_change_90d'], 2)) . '%';
+        $text->addText('Updated: ' . new FrozenTime('2023-01-22T17:07:00.000Z'));
 
         $update->getChat()->send($text);
     }
