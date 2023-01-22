@@ -27,12 +27,12 @@ class Bitcoin extends BaseCommand
 
         $text->addText('Name: ' . $btc['name']);
         $text->addText('Price: $' . number_format((float) $btc['quote']['USD']['price'], 2));
-        $text->addText('Change 1h: ' . number_format((float) $btc['quote']['USD']['percent_change_1h'], 2)) . '%';
-        $text->addText('Change 24h: ' . number_format((float) $btc['quote']['USD']['percent_change_24h'], 2)) . '%';
-        $text->addText('Change 7d: ' . number_format((float) $btc['quote']['USD']['percent_change_7d'], 2)) . '%';
-        $text->addText('Change 30d: ' . number_format((float) $btc['quote']['USD']['percent_change_30d'], 2)) . '%';
-        $text->addText('Change 60d: ' . number_format((float) $btc['quote']['USD']['percent_change_60d'], 2)) . '%';
-        $text->addText('Change 90d: ' . number_format((float) $btc['quote']['USD']['percent_change_90d'], 2)) . '%';
+        $text->addText('Change 1h: ' . number_format((float) $btc['quote']['USD']['percent_change_1h'], 2) . '%');
+        $text->addText('Change 24h: ' . number_format((float) $btc['quote']['USD']['percent_change_24h'], 2) . '%');
+        $text->addText('Change 7d: ' . number_format((float) $btc['quote']['USD']['percent_change_7d'], 2) . '%');
+        $text->addText('Change 30d: ' . number_format((float) $btc['quote']['USD']['percent_change_30d'], 2) . '%');
+        $text->addText('Change 60d: ' . number_format((float) $btc['quote']['USD']['percent_change_60d'], 2) . '%');
+        $text->addText('Change 90d: ' . number_format((float) $btc['quote']['USD']['percent_change_90d'], 2) . '%');
         $text->addText('Updated: ' . new FrozenTime('2023-01-22T17:07:00.000Z'));
 
         $update->getChat()->send($text);
