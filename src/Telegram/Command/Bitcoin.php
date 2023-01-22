@@ -33,7 +33,8 @@ class Bitcoin extends BaseCommand
         $text->addText('Change 30d: ' . number_format((float) $btc['quote']['USD']['percent_change_30d'], 2) . '%');
         $text->addText('Change 60d: ' . number_format((float) $btc['quote']['USD']['percent_change_60d'], 2) . '%');
         $text->addText('Change 90d: ' . number_format((float) $btc['quote']['USD']['percent_change_90d'], 2) . '%');
-        $text->addText('Updated: ' . new FrozenTime('2023-01-22T17:07:00.000Z'));
+        
+        $text->addText('Updated: ' . new FrozenTime($btc['quote']['USD']['last_updated']));
 
         $update->getChat()->send($text);
     }
