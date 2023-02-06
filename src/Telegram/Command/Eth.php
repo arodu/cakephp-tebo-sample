@@ -4,13 +4,12 @@ declare(strict_types=1);
 namespace App\Telegram\Command;
 
 use App\Utility\Crypto;
-use Cake\Core\Configure;
 use Cake\I18n\FrozenTime;
 use TeBo\Telegram\Command\BaseCommand;
 use TeBo\Telegram\Response\Text;
 use TeBo\Telegram\Update;
 
-class Bitcoin extends BaseCommand
+class Eth extends BaseCommand
 {
     public function help()
     {
@@ -23,7 +22,7 @@ class Bitcoin extends BaseCommand
      */
     public function execute(Update $update)
     {
-        $btc = Crypto::getItem('BTC');
+        $btc = Crypto::getItem('ETH');
         $text = new Text('');
 
         $text->addText('Name: ' . $btc['name']);
