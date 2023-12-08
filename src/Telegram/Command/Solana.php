@@ -16,8 +16,7 @@ class Solana extends BaseCommand
     }
 
     /**
-     * @param Chat $chat
-     * @param array $originalData
+     * @param Update $update
      * @return void
      */
     public function execute(Update $update)
