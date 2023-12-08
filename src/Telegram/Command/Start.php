@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace App\Telegram\Command;
 
 use TeBo\Telegram\Command\BaseCommand;
-use TeBo\Telegram\Response\Text;
+use TeBo\Telegram\Response\ResponseText;
 use TeBo\Telegram\Update;
 
 class Start extends BaseCommand
@@ -20,6 +20,6 @@ class Start extends BaseCommand
      */
     public function execute(Update $update)
     {
-        $update->getChat()->send(new Text('Custom start command!'));
+        $update->getChat()->send(new ResponseText('Custom start command!'));
     }
 }
