@@ -6,7 +6,7 @@ namespace App\Telegram\Command;
 use App\Utility\Crypto;
 use Cake\I18n\FrozenTime;
 use TeBo\Telegram\Command\BaseCommand;
-use TeBo\Telegram\Response\Text;
+use TeBo\Telegram\Response\ResponseText;
 use TeBo\Telegram\Update;
 
 class Eth extends BaseCommand
@@ -23,7 +23,7 @@ class Eth extends BaseCommand
     public function execute(Update $update)
     {
         $btc = Crypto::getItem('ETH');
-        $text = new Text('');
+        $text = new ResponseText('');
 
         $text->addText('Name: ' . $btc['name']);
         $text->addText('Price: $' . number_format((float) $btc['quote']['USD']['price'], 2));
@@ -39,4 +39,3 @@ class Eth extends BaseCommand
         $update->getChat()->send($text);
     }
 }
-

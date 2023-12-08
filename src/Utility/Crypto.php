@@ -9,12 +9,20 @@ use Cake\Http\Client;
 class Crypto
 {
 
-    public static function output($info): string
+    /**
+     * @param array $data
+     * @return string
+     */
+    public static function priceOutput(array $data): string
     {
         return '';
     }
 
-    public static function getItem($symbol = 'BTC')
+    /**
+     * @param string $symbol
+     * @return array|null
+     */
+    public static function getItem(string $symbol = 'BTC'): ?array
     {
         $url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest';
         $headers = [
@@ -37,7 +45,12 @@ class Crypto
         return static::getInfo($data, $symbol);
     }
 
-    protected static function getInfo($data, $symbol)
+    /**
+     * @param array $data
+     * @param string $symbol
+     * @return array|null
+     */
+    protected static function getInfo(array $data, string $symbol): ?array
     {
         foreach ($data['data'] as $item) {
             if ($item['symbol'] === $symbol) {

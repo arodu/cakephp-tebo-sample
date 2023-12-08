@@ -9,7 +9,7 @@ use TeBo\Telegram\Command\BaseCommand;
 use TeBo\Telegram\Response\ResponseText;
 use TeBo\Telegram\Update;
 
-class Bitcoin extends BaseCommand
+class Solana extends BaseCommand
 {
     public function help()
     {
@@ -22,7 +22,7 @@ class Bitcoin extends BaseCommand
      */
     public function execute(Update $update)
     {
-        $btc = Crypto::getItem('BTC');
+        $btc = Crypto::getItem('SOL');
         $text = new ResponseText('');
 
         $text->addText('Name: ' . $btc['name']);
@@ -39,4 +39,3 @@ class Bitcoin extends BaseCommand
         $update->getChat()->send($text);
     }
 }
-
