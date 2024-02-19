@@ -5,4 +5,4 @@
  */
 
 $this->disableAutoLayout();
-echo $lastUpdated;
+echo $lastUpdated->format('Y-m-d H:i:s');
