@@ -6,7 +6,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use App\Utility\Crypto;
-use Cake\I18n\FrozenDate;
+use Cake\I18n\FrozenTime;
 
 /**
  * V1 Controller
@@ -33,7 +33,7 @@ class ApiController extends AppController
     public function lastUpdated(string $currency)
     {
         $crypto = Crypto::getItem($currency);
-        $lastUpdated = new FrozenDate($crypto['quote']['USD']['last_updated']);
+        $lastUpdated = new FrozenTime($crypto['quote']['USD']['last_updated']);
         $this->set('lastUpdated', $lastUpdated);
     }
 }
