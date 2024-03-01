@@ -12,10 +12,6 @@ class Eth extends BaseCommand
 {
     use Common;
 
-    public function help()
-    {
-    }
-
     /**
      * @param Chat $chat
      * @param array $originalData

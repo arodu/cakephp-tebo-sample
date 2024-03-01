@@ -12,10 +12,6 @@ class Solana extends BaseCommand
 {
     use Common;
 
-    public function help()
-    {
-    }
-
     /**
      * @param Update $update
      * @return void
